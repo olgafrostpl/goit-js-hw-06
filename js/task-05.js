@@ -10,6 +10,13 @@ console.dir(inputEl);
 const outputEl = document.querySelector("#name-output");
 console.dir(outputEl.textContent);
 
-inputEl.addEventListener("input", (e) => {
-  outputEl.textContent = e.target.value;
-});
+inputEl.addEventListener("input", newInput);
+
+function newInput(e) {
+  //console.log(e.currentTarget);
+  outputEl.textContent = e.currentTarget.value;
+
+  if (e.currentTarget.value === "") {
+    outputEl.textContent = "Anonymous";
+  }
+}
